@@ -65,7 +65,7 @@ for ii=1:length(t)
     q_r = angle2quat( psi_r, the_r, phi_r )';
     
     %% pixhawk control law
-    [thrust_sp, att_control, rates_sp_prev, rates_prev, rates_int_out] = mod_pixhawk_mc_att_control(w_m, q_r, q_m, rates_sp_prev, rates_prev, rates_int, dt);
+    [thrust_sp, att_control, rates_sp_prev, rates_prev, rates_int_out] = drone.pixhawk_mc_att_control(w_m, q_r, q_m, rates_sp_prev, rates_prev, rates_int, dt);
     
     %% update drone state according to control law and dyamics model
     u0 = [-1;+1;-1;+1] * thrust_sp;
